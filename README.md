@@ -1,5 +1,12 @@
 # Description
+
+This project is based on Unsplash api to fetch images.
+ReactJS is used for the Frontend of the project.
+A user could click on navigation of different collection eg: code,cat to fetch all the images of that collection.
+
 # Netlify
+
+https://heroic-creponne-e8c28d.netlify.app/
 
 # LinkedIn
 https://www.linkedin.com/in/nitin-28/

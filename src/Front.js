@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Home from "./Home";
 
+const Categories = ["Coding", "Cat", "Office", "Cars", "Shoes"];
+
 const Front = () => {
-  const [newQuery, setnewQuery] = useState();
+  const [newQuery, setnewQuery] = useState("Cars");
   const changeQuery = (Query) => {
     setnewQuery(Query);
   };
@@ -38,44 +40,17 @@ const Front = () => {
       </BodyHead>
       <NavContainer>
         <ul>
-          <li
-            onClick={() => {
-              changeQuery("code");
-            }}
-          >
-            Coding
-          </li>
-          <li
-            onClick={() => {
-              changeQuery("cat");
-            }}
-          >
-            Cat
-          </li>
-          <li
-            onClick={() => {
-              changeQuery("office");
-            }}
-          >
-            Office
-          </li>
-          <li
-            onClick={() => {
-              changeQuery("car");
-            }}
-          >
-            Cars
-          </li>
-          <li
-            onClick={() => {
-              changeQuery("shoe");
-            }}
-          >
-            Shoes
-          </li>
+          {Categories.map((category) => (
+            <li
+              onClick={() => changeQuery(category)}
+              style={newQuery === category ? { fontWeight: 900 } : {}}
+            >
+              {category}
+            </li>
+          ))}
         </ul>
       </NavContainer>
-      {<Home navquery={newQuery} />}
+      {<Home navQuery={newQuery} />}
       <Footer>
         <FTitle>
           <h2>Let's work Together</h2>

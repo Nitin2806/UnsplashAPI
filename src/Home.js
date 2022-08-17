@@ -1,38 +1,47 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import axios from "axios";
 import "./Home.css";
 
 const Home = (navquery) => {
   const [data, setData] = useState([]);
-  const [query, setQuery] = useState();
+  const [query, setQuery] = useState("office");
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
 
   const client_id = "4mB0CC1xdwTfTQGjF1v1uO9vS2Z8ubzBPd4X0B86IEU"; //Upsplach key
   const fetchUrl = `https://api.unsplash.com/search/photos?client_id=${client_id}&query=${query}&page=${page}`; //fetch url from upsplash api
 
-  const fetchImages = () => {
+  const fetchImages = useCallback(() => {
     axios
       .get(fetchUrl, {
         headers: {},
       })
       .then((response) => {
+        console.log(response);
+        clearState();
         setData([...data, ...response.data.results]);
-      })
+      }, setHasMore(false))
+
       .catch((error) => {
         console.log(error);
       });
     setPage(page + 1);
+  }, [data, fetchUrl, page]);
+  const clearState = () => {
+    setData(" ");
   };
 
   useEffect(() => {
     fetchImages();
+  }, []);
+
+  useEffect(() => {
     setQuery(navquery.navquery);
   }, [navquery.navquery]);
-  // console.log("data", data);
-  console.log(query);
+
+  console.log("this is query", data);
 
   return (
     <div>

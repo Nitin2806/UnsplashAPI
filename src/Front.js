@@ -61,14 +61,14 @@ const Front = () => {
           </li>
           <li
             onClick={() => {
-              changeQuery("cars");
+              changeQuery("car");
             }}
           >
             Cars
           </li>
           <li
             onClick={() => {
-              changeQuery("shoes");
+              changeQuery("shoe");
             }}
           >
             Shoes
@@ -111,12 +111,18 @@ const Front = () => {
 
 export default Front;
 
-const Container = styled.div``;
+const Container = styled.div`
+  overflow-x: hidden;
+`;
 
 const Header = styled.div`
   max-width: 100%;
   padding: 0 180px;
   height: 20vh;
+  @media (max-width: 700px) {
+    padding: 0;
+    height: 10vh;
+  }
 `;
 
 const Nav = styled.nav`
@@ -125,6 +131,7 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   padding: 20px;
+
   ul li {
     display: inline-block;
     list-style: none;
@@ -134,16 +141,27 @@ const Nav = styled.nav`
     text-decoration: none;
     font-size: 18px;
     color: #001418;
-
     font-weight: 500;
 
     /* margin-left: 15px;
     margin-right: 10px;
     padding: 20px 0 5px; */
   }
+  @media (max-width: 700px) {
+    padding: 5px;
+    ul li {
+      margin: 5px 10px;
+    }
+    ul li a {
+      font-size: 12px;
+    }
+  }
 `;
 const Logo = styled.img`
   width: 80px;
+  @media (max-width: 700px) {
+    width: 50px;
+  }
 `;
 const Contact = styled.a`
   display: inline-block;
@@ -152,17 +170,24 @@ const Contact = styled.a`
   text-align: center;
   padding: 15px 10px;
   cursor: pointer;
-
   position: relative;
   color: #fff;
   border: none;
   background-color: #000;
   margin-right: 15px;
   z-index: 1;
+  @media (max-width: 700px) {
+    padding: 8px 5px;
+    font-size: 10px;
+    border-radius: 10px;
+    margin-right: 0;
+    min-width: 50px;
+  }
 `;
 
 const BodyHead = styled.div`
   /* margin-top: 3px; */
+  max-width: 100%;
   font-size: 35px;
   padding: 10px 290px;
   text-align: center !important;
@@ -184,14 +209,20 @@ const BodyHead = styled.div`
       color: #979797;
     }
   }
+  @media (max-width: 700px) {
+    font-size: 15px;
+    padding: 10px 50px;
+  }
 `;
 
 const NavContainer = styled.div`
   width: 100%;
-  padding-right: 15px;
-  padding-left: 55px;
-  margin-right: auto;
-  margin-left: auto;
+
+  max-width: 100%;
+
+  max-width: 100%;
+  margin: 0 auto 0 auto;
+  padding: 0 15px 0 55px;
   ul {
     list-style: none;
     padding-bottom: 100px;
@@ -204,6 +235,16 @@ const NavContainer = styled.div`
     color: #979797;
     cursor: pointer;
   }
+  @media (max-width: 700px) {
+    margin: 0 auto 0 auto;
+    padding: 0 15px 0 25px;
+    ul {
+      padding-bottom: 20px;
+    }
+    ul li {
+      font-size: 14px;
+    }
+  }
 `;
 
 const Footer = styled.div`
@@ -211,24 +252,34 @@ const Footer = styled.div`
   text-align: center !important;
   display: block;
   box-sizing: border-box;
+  max-width: 100%;
+  @media (max-width: 700px) {
+  }
 `;
 const FTitle = styled.div`
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+  max-width: 100%;
+  margin: 0 auto 0 auto;
+  padding: 0 15px 0 15px;
   h2 {
     font-size: 50px;
     margin-bottom: 3rem !important;
+  }
+  @media (max-width: 700px) {
+    h2 {
+      font-size: 30px;
+      margin-bottom: 3rem !important;
+    }
   }
 `;
 const Social = styled.div`
   margin-top: 60px;
   margin-bottom: 40px;
+  max-width: 100%;
 `;
 
 const Copyright = styled.div`
   font-size: 12px;
+  max-width: 100%;
+
   color: #979797;
 `;

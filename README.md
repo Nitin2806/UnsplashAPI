@@ -6,7 +6,7 @@ A user could click on navigation of different collection eg: code,cat to fetch a
 
 # Netlify
 
-https://heroic-creponne-e8c28d.netlify.app/
+https://nitin-zigma.netlify.app/
 
 # LinkedIn
 https://www.linkedin.com/in/nitin-28/

@@ -54,10 +54,10 @@ const Front = () => {
           </li>
           <li
             onClick={() => {
-              changeQuery("dog");
+              changeQuery("office");
             }}
           >
-            Dog
+            Office
           </li>
           <li
             onClick={() => {

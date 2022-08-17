@@ -6,7 +6,7 @@ import "./Home.css";
 
 const Home = (navquery) => {
   const [data, setData] = useState([]);
-  const [query, setQuery] = useState("office");
+  const [query, setQuery] = useState(" ");
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
 
@@ -20,7 +20,6 @@ const Home = (navquery) => {
       })
       .then((response) => {
         console.log(response);
-        clearState();
         setData([...data, ...response.data.results]);
       }, setHasMore(false))
 
@@ -29,14 +28,11 @@ const Home = (navquery) => {
       });
     setPage(page + 1);
   }, [data, fetchUrl, page]);
-  const clearState = () => {
-    setData(" ");
-  };
 
   useEffect(() => {
     fetchImages();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [query]);
 
   useEffect(() => {
     setQuery(navquery.navquery);

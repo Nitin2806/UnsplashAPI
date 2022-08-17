@@ -24,7 +24,7 @@ const Home = ({ navQuery }) => {
   useEffect(() => {
     const fetchUrl = `https://api.unsplash.com/search/photos?client_id=${client_id}&query=${navQuery}&page=${page}`; //fetch url from upsplash api
 
-    console.log(fetchUrl);
+    // console.log(fetchUrl);
     axios.get(fetchUrl).then((res) => {
       setData((state) => [...state, ...res.data.results]);
       setTotalPages(res.data.total_pages);
@@ -38,7 +38,7 @@ const Home = ({ navQuery }) => {
   };
 
   useEffect(() => {
-    console.log({ data });
+    // console.log({ data });
   }, [data]);
 
   const observer = useRef(new IntersectionObserver(handleObserver, options));
